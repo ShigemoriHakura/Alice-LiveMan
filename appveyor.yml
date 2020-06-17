@@ -21,7 +21,7 @@ deploy:
    tag: Last Release
    artifact: /.*\.jar/
    auth_token: 
-     secure: eaM8pVfHLCfJ7/zjwnCfbVvtoI8ruozTfWKmAt5mh8NtNUdm33b8d6m5PwBbozDT
+     secure: y6MGoJUA1fGpH9t0NggnBk3GD8JSd7RAHVHkpQN9UT/xouIBAV3vX4RMEyDgtrW3
    draft: false
    prerelease: false
    on:
@@ -30,7 +30,7 @@ deploy:
 notifications:
   - provider: Email
     to:
-      - orz@myloli.me
+      - orz@admin@loli.ren
     on_build_success: false
     on_build_failure: true
     on_build_status_changed: false
