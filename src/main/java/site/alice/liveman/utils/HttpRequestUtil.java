@@ -104,7 +104,15 @@ public class HttpRequestUtil {
         HttpGet httpGet = new HttpGet(url);
         HttpClientContext context = HttpClientContext.create();
         RequestConfig.Builder builder = RequestConfig.custom();
-        builder.setConnectTimeout(2000).setConnectionRequestTimeout(2000).setSocketTimeout(5000).setCookieSpec(CookieSpecs.IGNORE_COOKIES).setRedirectsEnabled(true);
+        
+        String useSystemProxies = System.getProperty("java.net.useSystemProxies", "FALSE");      
+        if(useSystemProxies != "FALSE"){
+            HttpHost proxy = new HttpHost(System.getProperty("http.proxyHost", "127.0.0.1"), Integer.parseInt(System.getProperty("http.proxyPort", "7890")), "http");
+            builder.setConnectTimeout(2000).setConnectionRequestTimeout(2000).setSocketTimeout(5000).setCookieSpec(CookieSpecs.IGNORE_COOKIES).setProxy(proxy).setRedirectsEnabled(true);
+        }else{
+            builder.setConnectTimeout(2000).setConnectionRequestTimeout(2000).setSocketTimeout(5000).setCookieSpec(CookieSpecs.IGNORE_COOKIES).setRedirectsEnabled(true);   
+        }
+        
         httpGet.setConfig(builder.build());
         if (StringUtils.isNotBlank(cookies)) {
             httpGet.setHeader("Cookie", cookies);
@@ -137,7 +145,15 @@ public class HttpRequestUtil {
         HttpPost httpPost = new HttpPost(url);
         HttpClientContext context = HttpClientContext.create();
         RequestConfig.Builder builder = RequestConfig.custom();
-        builder.setConnectTimeout(2000).setConnectionRequestTimeout(2000).setSocketTimeout(5000).setCookieSpec(CookieSpecs.IGNORE_COOKIES).setRedirectsEnabled(true);
+        
+        String useSystemProxies = System.getProperty("java.net.useSystemProxies", "FALSE");      
+        if(useSystemProxies != "FALSE"){
+            HttpHost proxy = new HttpHost(System.getProperty("http.proxyHost", "127.0.0.1"), Integer.parseInt(System.getProperty("http.proxyPort", "7890")), "http");
+            builder.setConnectTimeout(2000).setConnectionRequestTimeout(2000).setSocketTimeout(5000).setCookieSpec(CookieSpecs.IGNORE_COOKIES).setProxy(proxy).setRedirectsEnabled(true);
+        }else{
+            builder.setConnectTimeout(2000).setConnectionRequestTimeout(2000).setSocketTimeout(5000).setCookieSpec(CookieSpecs.IGNORE_COOKIES).setRedirectsEnabled(true);   
+        }
+        
         httpPost.setConfig(builder.build());
         if (StringUtils.isNotBlank(cookies)) {
             httpPost.setHeader("Cookie", cookies);
@@ -179,7 +195,15 @@ public class HttpRequestUtil {
         HttpGet httpGet = new HttpGet(url);
         HttpClientContext context = HttpClientContext.create();
         RequestConfig.Builder builder = RequestConfig.custom();
-        builder.setConnectTimeout(2000).setConnectionRequestTimeout(2000).setSocketTimeout(5000).setCookieSpec(CookieSpecs.IGNORE_COOKIES).setRedirectsEnabled(true);
+        
+        String useSystemProxies = System.getProperty("java.net.useSystemProxies", "FALSE");      
+        if(useSystemProxies != "FALSE"){
+            HttpHost proxy = new HttpHost(System.getProperty("http.proxyHost", "127.0.0.1"), Integer.parseInt(System.getProperty("http.proxyPort", "7890")), "http");
+            builder.setConnectTimeout(2000).setConnectionRequestTimeout(2000).setSocketTimeout(5000).setCookieSpec(CookieSpecs.IGNORE_COOKIES).setProxy(proxy).setRedirectsEnabled(true);
+        }else{
+            builder.setConnectTimeout(2000).setConnectionRequestTimeout(2000).setSocketTimeout(5000).setCookieSpec(CookieSpecs.IGNORE_COOKIES).setRedirectsEnabled(true);   
+        }
+        
         httpGet.setConfig(builder.build());
         httpGet.addHeader("Accept", "*/*");
         httpGet.addHeader("Accept-Encoding", "gzip, deflate");
@@ -204,7 +228,15 @@ public class HttpRequestUtil {
         HttpGet httpGet = new HttpGet(url);
         HttpClientContext context = HttpClientContext.create();
         RequestConfig.Builder builder = RequestConfig.custom();
-        builder.setConnectTimeout(30000).setConnectionRequestTimeout(30000).setSocketTimeout(30000).setCookieSpec(CookieSpecs.IGNORE_COOKIES).setRedirectsEnabled(true);
+        
+        String useSystemProxies = System.getProperty("java.net.useSystemProxies", "FALSE");      
+        if(useSystemProxies != "FALSE"){
+            HttpHost proxy = new HttpHost(System.getProperty("http.proxyHost", "127.0.0.1"), Integer.parseInt(System.getProperty("http.proxyPort", "7890")), "http");
+            builder.setConnectTimeout(2000).setConnectionRequestTimeout(2000).setSocketTimeout(5000).setCookieSpec(CookieSpecs.IGNORE_COOKIES).setProxy(proxy).setRedirectsEnabled(true);
+        }else{
+            builder.setConnectTimeout(2000).setConnectionRequestTimeout(2000).setSocketTimeout(5000).setCookieSpec(CookieSpecs.IGNORE_COOKIES).setRedirectsEnabled(true);   
+        }
+        
         httpGet.setConfig(builder.build());
         if (StringUtils.isNotBlank(cookies)) {
             httpGet.setHeader("Cookie", cookies);
@@ -234,7 +266,15 @@ public class HttpRequestUtil {
         File tempFile = new File(file.toString() + ".tmp");
         HttpClientContext context = HttpClientContext.create();
         RequestConfig.Builder builder = RequestConfig.custom();
-        builder.setConnectTimeout(2000).setConnectionRequestTimeout(2000).setSocketTimeout(5000).setCookieSpec(CookieSpecs.IGNORE_COOKIES).setRedirectsEnabled(true);
+        
+        String useSystemProxies = System.getProperty("java.net.useSystemProxies", "FALSE");      
+        if(useSystemProxies != "FALSE"){
+            HttpHost proxy = new HttpHost(System.getProperty("http.proxyHost", "127.0.0.1"), Integer.parseInt(System.getProperty("http.proxyPort", "7890")), "http");
+            builder.setConnectTimeout(2000).setConnectionRequestTimeout(2000).setSocketTimeout(5000).setCookieSpec(CookieSpecs.IGNORE_COOKIES).setProxy(proxy).setRedirectsEnabled(true);
+        }else{
+            builder.setConnectTimeout(2000).setConnectionRequestTimeout(2000).setSocketTimeout(5000).setCookieSpec(CookieSpecs.IGNORE_COOKIES).setRedirectsEnabled(true);   
+        }
+        
         httpGet.setConfig(builder.build());
         httpGet.addHeader("Accept", "*/*");
         httpGet.addHeader("Accept-Encoding", "gzip, deflate");

@@ -20,3 +20,6 @@
 + 17Live
 
 依赖项目：https://github.com/NekoSunflower/OneDriveJavaSDK
+
+## 使用方法
+* java -Dadmin.room.id=7531054 -Djava.net.useSystemProxies=true -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=7890 -jar liveman-0.0.1-SNAPSHOT.jar 
