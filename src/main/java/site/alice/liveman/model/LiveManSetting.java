@@ -159,6 +159,10 @@ public class LiveManSetting {
 
     @JSONField(serialize = false)
     public Proxy getProxy() {
+        String useSystemProxies = System.getProperty("admin.proxy.socks", "FALSE");     
+        if (proxy == null && useSystemProxies != "FALSE") { 
+            return new Proxy(Proxy.Type.SOCKS, new InetSocketAddress(System.getProperty("admin.proxy.address", "127.0.0.1"), Integer.parseInt(System.getProperty("admin.proxy.port", "7890"))));
+        }
         return proxy;
     }
 
